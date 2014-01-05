@@ -10,4 +10,7 @@
 
 @interface FCViewController : UIViewController
 
+- (IBAction)showStates:(id)sender;
+- (IBAction)showCapitals:(id)sender;
+
 @end

@@ -26,4 +26,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)showStates:(id)sender {
+}
+
+- (IBAction)showCapitals:(id)sender {
+}
 @end
