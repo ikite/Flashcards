@@ -21,6 +21,8 @@
 		41F07BD318793A8E00C92708 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41F07BB518793A8E00C92708 /* UIKit.framework */; };
 		41F07BDB18793A8E00C92708 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 41F07BD918793A8E00C92708 /* InfoPlist.strings */; };
 		41F07BDD18793A8E00C92708 /* FlashCardsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F07BDC18793A8E00C92708 /* FlashCardsTests.m */; };
+		41F07BE81879464D00C92708 /* FCCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F07BE71879464D00C92708 /* FCCardViewController.m */; };
+		41F07BEB1879469A00C92708 /* FCResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F07BEA1879469A00C92708 /* FCResultViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,10 @@
 		41F07BD818793A8E00C92708 /* FlashCardsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FlashCardsTests-Info.plist"; sourceTree = "<group>"; };
 		41F07BDA18793A8E00C92708 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		41F07BDC18793A8E00C92708 /* FlashCardsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlashCardsTests.m; sourceTree = "<group>"; };
+		41F07BE61879464D00C92708 /* FCCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCCardViewController.h; sourceTree = "<group>"; };
+		41F07BE71879464D00C92708 /* FCCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCCardViewController.m; sourceTree = "<group>"; };
+		41F07BE91879469A00C92708 /* FCResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCResultViewController.h; sourceTree = "<group>"; };
+		41F07BEA1879469A00C92708 /* FCResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCResultViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +121,10 @@
 				41F07BC018793A8E00C92708 /* FCAppDelegate.h */,
 				41F07BC118793A8E00C92708 /* FCAppDelegate.m */,
 				41F07BC318793A8E00C92708 /* Main.storyboard */,
+				41F07BE61879464D00C92708 /* FCCardViewController.h */,
+				41F07BE71879464D00C92708 /* FCCardViewController.m */,
+				41F07BE91879469A00C92708 /* FCResultViewController.h */,
+				41F07BEA1879469A00C92708 /* FCResultViewController.m */,
 				41F07BC618793A8E00C92708 /* FCViewController.h */,
 				41F07BC718793A8E00C92708 /* FCViewController.m */,
 				41F07BC918793A8E00C92708 /* Images.xcassets */,
@@ -252,7 +262,9 @@
 			files = (
 				41F07BBE18793A8E00C92708 /* main.m in Sources */,
 				41F07BC218793A8E00C92708 /* FCAppDelegate.m in Sources */,
+				41F07BEB1879469A00C92708 /* FCResultViewController.m in Sources */,
 				41F07BC818793A8E00C92708 /* FCViewController.m in Sources */,
+				41F07BE81879464D00C92708 /* FCCardViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
