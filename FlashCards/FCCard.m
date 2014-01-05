@@ -38,7 +38,7 @@
 
 - (void)recordAnswer:(int)answerNum
 {
-    self.correctAnswer = (answerNum == self.correctAnswer);
+    self.isCorrect = (answerNum == self.correctAnswer);
 }
 
 @end
