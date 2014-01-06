@@ -7,13 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FCGame.h"
 
 @interface FCResultViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *numRightLabel;
 @property (weak, nonatomic) IBOutlet UILabel *numWrongLabel;
 
+@property (strong, nonatomic) FCGame *game;
 
 - (IBAction)startAgain:(id)sender;
+- (id)initWithGame:(FCGame *)game;
 
 @end

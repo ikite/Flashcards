@@ -14,12 +14,24 @@
 
 @implementation FCResultViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+//- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+//{
+//    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+//    if (self) {
+//        // Custom initialization
+//    }
+//    return self;
+//}
+
+- (id)initWithGame:(FCGame *)game
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    self = [storyboard instantiateViewControllerWithIdentifier:@"ResultsScene"];
     if (self) {
-        // Custom initialization
+        self.game = game;
     }
+    
     return self;
 }
 
@@ -27,15 +39,20 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    self.numRightLabel.text = [NSString stringWithFormat:@"%d Right", [self.game getNumRight]];
+    self.numWrongLabel.text = [NSString stringWithFormat:@"%d Wrong", [self.game getNumWrong]];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+    
+    
 }
 
 - (IBAction)startAgain:(id)sender {
+    [self.view removeFromSuperview];
 }
 
 

@@ -7,10 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FCCardViewController.h"
+#import "FCAnswerKey.h"
+#import "FCGame.h"
 
 @interface FCViewController : UIViewController
 
 - (IBAction)showStates:(id)sender;
 - (IBAction)showCapitals:(id)sender;
+
+//- (IBAction)showCards:(NSMutableArray *)cards;
+
+@property (nonatomic, strong) FCCardViewController *cardVC;
 
 @end
