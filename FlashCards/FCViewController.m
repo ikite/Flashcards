@@ -27,8 +27,25 @@
 }
 
 - (IBAction)showStates:(id)sender {
+    FCAnswerKey *answerKey = [[FCAnswerKey alloc] init];
+    NSMutableArray *cards = [answerKey allocStateCards];
+    
+    [self showCards:cards];
 }
 
 - (IBAction)showCapitals:(id)sender {
+    FCAnswerKey *answerKey = [[FCAnswerKey alloc] init];
+    NSMutableArray *cards = [answerKey allocCapitalCards];
+    
+    [self showCards:cards];
 }
+
+- (void)showCards:(NSMutableArray *)cards {
+    FCGame *game = [[FCGame alloc] initWithCards:cards];
+    
+    self.cardVC = [[FCCardViewController alloc] initWithGame:game];
+    [self.view.window addSubview:self.cardVC.view];
+        
+}
+
 @end

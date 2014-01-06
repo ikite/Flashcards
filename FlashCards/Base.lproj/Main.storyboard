@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -53,7 +53,7 @@
         <!--Card View Controller-->
         <scene sceneID="C2g-8H-hD1">
             <objects>
-                <viewController id="lWZ-hd-Zyn" customClass="FCCardViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CardScene" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lWZ-hd-Zyn" customClass="FCCardViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BJk-cX-lhZ"/>
                         <viewControllerLayoutGuide type="bottom" id="zlR-aI-zed"/>
@@ -69,7 +69,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q04-aJ-Eax">
-                                <rect key="frame" x="137" y="269" width="66" height="30"/>
+                                <rect key="frame" x="24" y="245" width="273" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Columbia">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -79,7 +79,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TjN-wp-OhX">
-                                <rect key="frame" x="137" y="344" width="47" height="30"/>
+                                <rect key="frame" x="24" y="308" width="273" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Albany">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -89,7 +89,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gS2-yc-sfn">
-                                <rect key="frame" x="137" y="424" width="52" height="30"/>
+                                <rect key="frame" x="24" y="373" width="273" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Trenton">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -115,7 +115,7 @@
         <!--Result View Controller-->
         <scene sceneID="KW2-nw-udo">
             <objects>
-                <viewController id="fLd-oH-RrX" customClass="FCResultViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ResultsScene" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fLd-oH-RrX" customClass="FCResultViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CXG-Vi-SaS"/>
                         <viewControllerLayoutGuide type="bottom" id="1ga-Si-HZA"/>

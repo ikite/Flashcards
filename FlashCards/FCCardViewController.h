@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "FCCard.h"
+#import "FCGame.h"
+#import "FCResultViewController.h"
 
 @interface FCCardViewController : UIViewController
 
@@ -15,6 +18,13 @@
 @property (weak, nonatomic) IBOutlet UIButton *answer2Button;
 @property (weak, nonatomic) IBOutlet UIButton *answer3Button;
 
+@property (strong, nonatomic) FCResultViewController *resultsVC;
+@property (strong, nonatomic) FCGame *game;
+@property (strong, nonatomic) FCCard *currentCard;
+
 - (IBAction)answerButtonTouched:(id)sender;
-- (void)nextCard;
+//- (void)nextCard;
+
+- (id)initWithGame:(FCGame *)game;
+
 @end
