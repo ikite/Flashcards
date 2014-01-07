@@ -7,6 +7,7 @@
 //
 
 #import "FCViewController.h"
+#import "FCAppDelegate.h"
 
 @interface FCViewController ()
 
@@ -45,7 +46,11 @@
     
     self.cardVC = [[FCCardViewController alloc] initWithGame:game];
     [self.view.window addSubview:self.cardVC.view];
+    
+    FCAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    [delegate pushView];
         
 }
+
 
 @end

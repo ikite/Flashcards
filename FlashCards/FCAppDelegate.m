@@ -43,4 +43,30 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+/* Animations */
+- (void)pushView
+{
+    CATransition *animation = [CATransition animation];
+    [animation setDelegate:self];
+    
+    [animation setType:kCATransitionPush];
+    [animation setSubtype:kCATransitionFromRight];
+    
+    [animation setDuration:0.5];
+    
+    [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+    [[self.window layer] addAnimation:animation forKey:@"push"];
+}
+
+- (void)flipView
+{
+    [UIView beginAnimations:@"flip" context:nil];
+    [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.window cache:YES];
+    
+    [UIView setAnimationDuration:0.5];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+    
+    [UIView commitAnimations];
+}
+
 @end
