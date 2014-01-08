@@ -19,6 +19,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    [self animateViewLoad];
 }
 
 - (void)didReceiveMemoryWarning
@@ -50,6 +51,39 @@
     FCAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     [delegate pushView];
         
+}
+
+- (void)animateViewEntrance:(UIView *)view
+                     startY:(int)startY
+                      delay:(NSTimeInterval)delay
+{
+    CGRect frame = view.frame;
+    CGFloat endY = frame.origin.y;
+    
+    frame.origin.y = startY;
+    view.frame = frame;
+    
+    [UIView animateWithDuration:0.25
+                          delay:delay
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
+                         view.frame = CGRectMake(frame.origin.x, endY, frame.size.width, frame.size.height);
+                     }
+                     completion:nil];
+}
+
+- (void)animateViewLoad
+{
+    [self animateViewEntrance:self.showStatesButton
+                       startY:self.view.frame.size.height
+                        delay:0.5];
+    [self animateViewEntrance:self.showCapitalsButton
+                       startY:self.view.frame.size.height
+                        delay:0.5];
+    [self animateViewEntrance:self.titleLabel
+                       startY:self.titleLabel.frame.size.height
+                        delay:0];
+    
 }
 
 

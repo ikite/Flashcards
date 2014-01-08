@@ -17,6 +17,10 @@
 - (IBAction)showCapitals:(id)sender;
 
 //- (IBAction)showCards:(NSMutableArray *)cards;
+@property (weak, nonatomic) IBOutlet UIButton *showStatesButton;
+@property (weak, nonatomic) IBOutlet UIButton *showCapitalsButton;
+
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @property (nonatomic, strong) FCCardViewController *cardVC;
 
