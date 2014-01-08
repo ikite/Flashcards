@@ -7,6 +7,7 @@
 //
 
 #import "FCCardViewController.h"
+#import "FCAppDelegate.h"
 
 @interface FCCardViewController ()
 
@@ -57,6 +58,9 @@
     }
     
     [self nextCard];
+    
+    FCAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    [delegate flipView];
 }
 
 - (void)nextCard
