@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13B42" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="CardResult" representedClassName="CardResult" syncable="YES">
+        <attribute name="cardName" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="wasCorrect" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <relationship name="gameResults" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GameResult" inverseName="cardResults" inverseEntity="GameResult" syncable="YES"/>
+    </entity>
+    <entity name="GameResult" representedClassName="GameResult" syncable="YES">
+        <attribute name="gameDate" optional="YES" attributeType="Date" indexed="YES" syncable="YES"/>
+        <attribute name="gameLength" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="cardResults" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CardResult" inverseName="gameResults" inverseEntity="CardResult" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="GameResult" positionX="0" positionY="0" width="0" height="0"/>
+        <element name="CardResult" positionX="0" positionY="0" width="0" height="0"/>
+    </elements>
+</model>
