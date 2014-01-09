@@ -27,6 +27,8 @@
 		41F07BF11879775500C92708 /* FCAnswerKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F07BF01879775500C92708 /* FCAnswerKey.m */; };
 		41F07BF4187979CF00C92708 /* FCGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 41F07BF3187979CF00C92708 /* FCGame.m */; };
 		C8016462187C1E6000CCA090 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8016461187C1E6000CCA090 /* QuartzCore.framework */; };
+		C8237E3D187EC1F100FF586B /* FCGameHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8237E3C187EC1F100FF586B /* FCGameHistoryViewController.m */; };
+		C8237E40187EC25200FF586B /* FCCardHistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8237E3F187EC25200FF586B /* FCCardHistoryViewController.m */; };
 		C8451456187D7A3300F17996 /* FlashCards.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C8451454187D7A3300F17996 /* FlashCards.xcdatamodeld */; };
 		C8451458187D7C0F00F17996 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8451457187D7C0F00F17996 /* CoreData.framework */; };
 		C845145B187D7DE800F17996 /* CardResult.m in Sources */ = {isa = PBXBuildFile; fileRef = C845145A187D7DE800F17996 /* CardResult.m */; };
@@ -74,6 +76,10 @@
 		41F07BF2187979CF00C92708 /* FCGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCGame.h; sourceTree = "<group>"; };
 		41F07BF3187979CF00C92708 /* FCGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCGame.m; sourceTree = "<group>"; };
 		C8016461187C1E6000CCA090 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		C8237E3B187EC1F100FF586B /* FCGameHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCGameHistoryViewController.h; sourceTree = "<group>"; };
+		C8237E3C187EC1F100FF586B /* FCGameHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCGameHistoryViewController.m; sourceTree = "<group>"; };
+		C8237E3E187EC25200FF586B /* FCCardHistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FCCardHistoryViewController.h; sourceTree = "<group>"; };
+		C8237E3F187EC25200FF586B /* FCCardHistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FCCardHistoryViewController.m; sourceTree = "<group>"; };
 		C8451455187D7A3300F17996 /* FlashCards.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FlashCards.xcdatamodel; sourceTree = "<group>"; };
 		C8451457187D7C0F00F17996 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		C8451459187D7DE800F17996 /* CardResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardResult.h; sourceTree = "<group>"; };
@@ -161,6 +167,10 @@
 				41F07BE71879464D00C92708 /* FCCardViewController.m */,
 				41F07BE91879469A00C92708 /* FCResultViewController.h */,
 				41F07BEA1879469A00C92708 /* FCResultViewController.m */,
+				C8237E3B187EC1F100FF586B /* FCGameHistoryViewController.h */,
+				C8237E3C187EC1F100FF586B /* FCGameHistoryViewController.m */,
+				C8237E3E187EC25200FF586B /* FCCardHistoryViewController.h */,
+				C8237E3F187EC25200FF586B /* FCCardHistoryViewController.m */,
 				41F07BC618793A8E00C92708 /* FCViewController.h */,
 				41F07BC718793A8E00C92708 /* FCViewController.m */,
 				41F07BC918793A8E00C92708 /* Images.xcassets */,
@@ -296,11 +306,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8237E3D187EC1F100FF586B /* FCGameHistoryViewController.m in Sources */,
 				C8451456187D7A3300F17996 /* FlashCards.xcdatamodeld in Sources */,
 				41F07BBE18793A8E00C92708 /* main.m in Sources */,
 				C845145E187D7DE800F17996 /* GameResult.m in Sources */,
 				41F07BC218793A8E00C92708 /* FCAppDelegate.m in Sources */,
 				41F07BEB1879469A00C92708 /* FCResultViewController.m in Sources */,
+				C8237E40187EC25200FF586B /* FCCardHistoryViewController.m in Sources */,
 				C845145B187D7DE800F17996 /* CardResult.m in Sources */,
 				41F07BF11879775500C92708 /* FCAnswerKey.m in Sources */,
 				41F07BC818793A8E00C92708 /* FCViewController.m in Sources */,

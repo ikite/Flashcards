@@ -17,6 +17,7 @@
 // Animations
 - (void)pushView;
 - (void)flipView;
+- (void)popView;
 
 // core data
 @property (strong, nonatomic) NSPersistentStoreCoordinator *dataStore;

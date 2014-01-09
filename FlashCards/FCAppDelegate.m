@@ -60,6 +60,20 @@
     [[self.window layer] addAnimation:animation forKey:@"push"];
 }
 
+- (void)popView
+{
+    CATransition *animation = [CATransition animation];
+    [animation setDelegate:self];
+    
+    [animation setType:kCATransitionPush];
+    [animation setSubtype:kCATransitionFromLeft];
+    
+    [animation setDuration:0.5];
+    
+    [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut]];
+    [[self.window layer] addAnimation:animation forKey:@"push"];
+}
+
 - (void)flipView
 {
     [UIView beginAnimations:@"flip" context:nil];
