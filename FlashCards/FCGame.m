@@ -7,6 +7,8 @@
 //
 
 #import "FCGame.h"
+#import "GameResult.h"
+#import "CardResult.h"
 
 @implementation FCGame
 
@@ -15,6 +17,7 @@
     if (self = [super init]) {
         self.cards = c;
         self.currentCard = 0;
+        self.gameStart = [NSDate date];
     }
     
     return self;
@@ -50,6 +53,30 @@
 - (int)getNumWrong
 {
     return self.cards.count - [self getNumRight];
+}
+
+- (NSError *)save:(NSManagedObjectContext *)context
+{
+    // Insert GameResult
+    GameResult * gameResult;
+    gameResult = [NSEntityDescription insertNewObjectForEntityForName:@"GameResult" inManagedObjectContext:context];
+    
+    // Set its attributes
+    gameResult.gameDate = self.gameStart;
+    gameResult.gameLength = [NSNumber numberWithInteger:[self.gameStart timeIntervalSinceNow]];
+    
+    // Add CardResult objects
+    for (FCCard *card  in self.cards) {
+        [gameResult addCardResultsObject:[card cardResultInGame:gameResult withContext:context]];
+    }
+    
+    // Save context
+    NSError *error;
+    if ([context save:&error]) {
+        return nil;
+    }
+    
+    return error;
 }
 
 @end

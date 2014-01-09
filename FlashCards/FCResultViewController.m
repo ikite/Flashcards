@@ -7,6 +7,7 @@
 //
 
 #import "FCResultViewController.h"
+#import "FCAppDelegate.h"
 
 @interface FCResultViewController ()
 
@@ -30,6 +31,7 @@
     self = [storyboard instantiateViewControllerWithIdentifier:@"ResultsScene"];
     if (self) {
         self.game = game;
+        [self saveGame];
     }
     
     return self;
@@ -53,6 +55,19 @@
 
 - (IBAction)startAgain:(id)sender {
     [self.view removeFromSuperview];
+}
+
+- (void)saveGame
+{
+    FCAppDelegate *appDelegate = [[UIApplication sharedApplication] delegate];
+    
+    //save game
+    NSError *err = [self.game save:appDelegate.dataContext];
+    
+    //report errors
+    if (err != nil) {
+        NSLog(@"Error in save: %@", [err localizedDescription]);
+    }
 }
 
 

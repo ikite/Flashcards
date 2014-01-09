@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
+#import <CoreData/CoreData.h>
 
 @interface FCAppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -16,5 +17,11 @@
 // Animations
 - (void)pushView;
 - (void)flipView;
+
+// core data
+@property (strong, nonatomic) NSPersistentStoreCoordinator *dataStore;
+@property (strong, nonatomic) NSManagedObjectModel *dataModel;
+@property (strong, nonatomic) NSManagedObjectContext *dataContext;
+
 
 @end

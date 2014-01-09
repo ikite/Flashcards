@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 #import "FCCard.h"
 #import "FCAnswerKey.h"
 
@@ -14,11 +15,15 @@
 
 @property (nonatomic, strong) NSMutableArray *cards;
 @property (nonatomic) int currentCard;
+@property (nonatomic, strong) NSDate *gameStart;
 
 - (id) initWithCards:(NSMutableArray *)c;
 - (BOOL) hasMoreCards;
 - (FCCard *) getNextCard;
 - (int) getNumRight;
 - (int) getNumWrong;
+
+// core data
+- (NSError *)save:(NSManagedObjectContext *)context;
 
 @end

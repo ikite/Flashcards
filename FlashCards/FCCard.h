@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GameResult.h"
+#import "CardResult.h"
 
 @interface FCCard : NSObject
 
@@ -21,5 +23,8 @@
            wrongAnswer2:(NSString *)wrongAnswer2;
 
 - (void) recordAnswer:(int)answerNum;
+
+// Core data
+- (CardResult *)cardResultInGame:(GameResult *)gameResult withContext:(NSManagedObjectContext *)context;
 
 @end

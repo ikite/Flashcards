@@ -13,6 +13,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [self configureCoreData];
+    
     return YES;
 }
 							
@@ -67,6 +69,51 @@
     [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
     
     [UIView commitAnimations];
+}
+
+/* core data */
+
+// find documents directory
+- (NSString *)docsDir
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES);
+    
+    return [paths firstObject];
+}
+
+// create persistent store coordinator for a given model
+- (NSPersistentStoreCoordinator *)dataStoreForModel:(NSManagedObjectModel *)model
+                                           filename:(NSString *)filename
+{
+    // Database location
+    NSURL * storeLocation = [NSURL fileURLWithPath:[[self docsDir]
+                                                    stringByAppendingPathComponent:filename]];
+    
+    NSPersistentStoreCoordinator * store = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:model];
+    
+    // set options
+    NSDictionary * options = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption, [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
+    
+    // Configure store for SQLite and report errors
+    NSError *error;
+    if (![store addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeLocation options:options error:&error]) {
+        NSLog(@"Error initializing Data Store: %@", [error localizedDescription]);
+        return nil;
+    }
+    
+    return store;
+}
+
+// setup properties
+- (void)configureCoreData
+{
+    // configure model
+    self.dataModel = [NSManagedObjectModel mergedModelFromBundles:nil];
+    self.dataStore = [self dataStoreForModel:self.dataModel filename:@"FlashCards.sqlite"];
+    
+    // configure context
+    self.dataContext = [[NSManagedObjectContext alloc] init];
+    [self.dataContext setPersistentStoreCoordinator:self.dataStore];
 }
 
 @end

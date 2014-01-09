@@ -41,4 +41,14 @@
     self.isCorrect = (answerNum == self.correctAnswer);
 }
 
+// Core data inverse relationship
+- (CardResult *)cardResultInGame:(GameResult *)gameResult withContext:(NSManagedObjectContext *)context
+{
+    CardResult *cardResult = [NSEntityDescription insertNewObjectForEntityForName:@"CardResult" inManagedObjectContext:context];
+    cardResult.cardName = self.cardText;
+    cardResult.wasCorrect = [NSNumber numberWithBool:self.isCorrect];
+    
+    return cardResult;
+}
+
 @end
