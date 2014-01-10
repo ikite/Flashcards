@@ -7,6 +7,7 @@
 //
 
 #import "FCCardHistoryViewController.h"
+#import "CardResult.h"
 
 @interface FCCardHistoryViewController ()
 
@@ -44,16 +45,14 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return self.results.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -62,6 +61,17 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
+    
+    CardResult *cr = [self.results objectAtIndex:indexPath.row];
+    cell.textLabel.text = cr.cardName;
+    
+    if ([cr.wasCorrect boolValue]) {
+        cell.detailTextLabel.text = @"Right";
+        cell.detailTextLabel.textColor = [UIColor blackColor];
+    } else {
+        cell.detailTextLabel.text = @"Wrong";
+        cell.detailTextLabel.textColor = [UIColor redColor];
+    }
     
     return cell;
 }

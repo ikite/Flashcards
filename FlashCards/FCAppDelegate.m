@@ -90,7 +90,7 @@
 // find documents directory
 - (NSString *)docsDir
 {
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentationDirectory, NSUserDomainMask, YES);
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     
     return [paths firstObject];
 }

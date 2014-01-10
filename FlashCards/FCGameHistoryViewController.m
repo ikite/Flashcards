@@ -8,6 +8,8 @@
 
 #import "FCGameHistoryViewController.h"
 #import "FCAppDelegate.h"
+#import "GameResult.h"
+#import "FCCardHistoryViewController.h"
 
 @interface FCGameHistoryViewController ()
 
@@ -20,6 +22,7 @@
     self = [super initWithStyle:style];
     if (self) {
         // Custom initialization
+        
     }
     return self;
 }
@@ -58,9 +61,13 @@
 - (NSFetchRequest *)requestForGameResults:(NSManagedObjectContext *)context
 {
     NSEntityDescription *gameResultDesc = [NSEntityDescription entityForName:@"GameResult" inManagedObjectContext:context];
+    
     NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    
     [request setEntity:gameResultDesc];
-    NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"gameDate" ascending:YES];
+    
+    NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"gameDate" ascending:NO];
+    
     [request setSortDescriptors:[NSArray arrayWithObject:sort]];
     
     return request;
@@ -87,20 +94,28 @@
     }
 }
 
+- (void)fillCell:(UITableViewCell *)cell withResultsAtIndex:(NSIndexPath *)indexPath
+{
+    GameResult * gr = [self.resultsController objectAtIndexPath:indexPath];
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"Game played on %@", [NSDateFormatter localizedStringFromDate:gr.gameDate dateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterNoStyle]];
+    
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%d seconds long", [gr.gameLength intValue]];
+    
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return [[self.resultsController sections] count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [[[self.resultsController sections] objectAtIndex:section] numberOfObjects];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -109,8 +124,27 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
+                                      reuseIdentifier:CellIdentifier];
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    }
     
+    [self fillCell:cell withResultsAtIndex:indexPath];
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    FCCardHistoryViewController *chvc = [storyboard instantiateViewControllerWithIdentifier:@"CardHistoryScene"];
+    
+    NSSortDescriptor *sort = [[NSSortDescriptor alloc] initWithKey:@"cardName" ascending:YES];
+    GameResult *gr = [self.resultsController objectAtIndexPath:indexPath];
+    chvc.results = [gr.cardResults sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]];
+    
+    [[self navigationController] pushViewController:chvc animated:YES];
 }
 
 /*

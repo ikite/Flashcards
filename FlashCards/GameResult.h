@@ -2,7 +2,7 @@
 //  GameResult.h
 //  FlashCards
 //
-//  Created by Ravi Shanker on 8/01/2014.
+//  Created by Ravi Shanker on 10/01/2014.
 //  Copyright (c) 2014 ikite. All rights reserved.
 //
 

@@ -8,6 +8,7 @@
 
 #import "FCViewController.h"
 #import "FCAppDelegate.h"
+#import "FCGameHistoryViewController.h"
 
 @interface FCViewController ()
 
@@ -40,6 +41,21 @@
     NSMutableArray *cards = [answerKey allocCapitalCards];
     
     [self showCards:cards];
+}
+
+- (IBAction)showHistory:(id)sender
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    FCGameHistoryViewController *gameHistoryVC = [storyboard instantiateViewControllerWithIdentifier:@"GameHistoryScene"];
+    
+    self.historyVC = [[UINavigationController alloc] initWithRootViewController:gameHistoryVC];
+    
+    //self.historyVC.view.frame = CGRectMake(0, 20, 320, 460);
+    [self.view.window addSubview:self.historyVC.view];
+    
+    FCAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
+    [delegate pushView];
 }
 
 - (void)showCards:(NSMutableArray *)cards {
@@ -78,6 +94,9 @@
                        startY:self.view.frame.size.height
                         delay:0.5];
     [self animateViewEntrance:self.showCapitalsButton
+                       startY:self.view.frame.size.height
+                        delay:0.5];
+    [self animateViewEntrance:self.showHistoryBtn
                        startY:self.view.frame.size.height
                         delay:0.5];
     [self animateViewEntrance:self.titleLabel

@@ -10,4 +10,6 @@
 
 @interface FCCardHistoryViewController : UITableViewController
 
+@property (strong, nonatomic)NSArray *results;
+
 @end
