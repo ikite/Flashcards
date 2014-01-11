@@ -63,7 +63,7 @@
     
     // Set its attributes
     gameResult.gameDate = self.gameStart;
-    gameResult.gameLength = [NSNumber numberWithInteger:[self.gameStart timeIntervalSinceNow]];
+    gameResult.gameLength = [NSNumber numberWithInteger:-[self.gameStart timeIntervalSinceNow]];
     
     // Add CardResult objects
     for (FCCard *card  in self.cards) {

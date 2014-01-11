@@ -110,7 +110,12 @@
     
     // Configure store for SQLite and report errors
     NSError *error;
-    if (![store addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeLocation options:options error:&error]) {
+    if (![store addPersistentStoreWithType:NSSQLiteStoreType
+                             configuration:nil
+                                       URL:storeLocation
+                                   options:options
+                                     error:&error])
+    {
         NSLog(@"Error initializing Data Store: %@", [error localizedDescription]);
         return nil;
     }

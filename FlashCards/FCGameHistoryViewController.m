@@ -79,6 +79,7 @@
     FCAppDelegate *delegate = [[UIApplication sharedApplication] delegate];
     
     NSManagedObjectContext *context = delegate.dataContext;
+    
     NSFetchRequest *request = [self requestForGameResults:context];
     
     // Make fetched-results controller
@@ -98,7 +99,7 @@
 {
     GameResult * gr = [self.resultsController objectAtIndexPath:indexPath];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"Game played on %@", [NSDateFormatter localizedStringFromDate:gr.gameDate dateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterNoStyle]];
+    cell.textLabel.text = [NSString stringWithFormat:@"Game played on %@", [NSDateFormatter localizedStringFromDate:gr.gameDate dateStyle:NSDateFormatterShortStyle timeStyle:NSDateFormatterNoStyle]];
     
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%d seconds long", [gr.gameLength intValue]];
     
@@ -122,7 +123,6 @@
 {
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
     // Configure the cell...
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
@@ -131,6 +131,7 @@
     }
     
     [self fillCell:cell withResultsAtIndex:indexPath];
+    
     return cell;
 }
 
